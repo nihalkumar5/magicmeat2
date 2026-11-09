@@ -22,6 +22,30 @@ export default function RootLayout() {
     pathname === '/(tabs)/index';
 
   useEffect(() => {
+    if (Platform.OS === 'web' && typeof document !== 'undefined') {
+      const styleId = 'magicmeat-web-root-styles';
+      if (!document.getElementById(styleId)) {
+        const style = document.createElement('style');
+        style.id = styleId;
+        style.textContent = `
+          html, body, #root {
+            width: 100% !important;
+            max-width: 100vw !important;
+            overflow-x: hidden !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            box-sizing: border-box !important;
+          }
+          * {
+            box-sizing: border-box !important;
+          }
+        `;
+        document.head.appendChild(style);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
     if (process.env.EXPO_PUBLIC_ENABLE_REALTIME_SYNC !== 'true') return;
 
     initRealtimeSync();
@@ -154,9 +178,11 @@ const styles = StyleSheet.create({
   outerContainer: {
     flex: 1,
     width: '100%',
+    maxWidth: '100%',
     height: '100%',
     minHeight: Platform.OS === 'web' ? ('100vh' as any) : '100%',
     backgroundColor: THEME.colors.background,
+    overflow: 'hidden',
   },
   outerContainerDesktop: {
     backgroundColor: '#FFFFFF',
@@ -166,8 +192,10 @@ const styles = StyleSheet.create({
   contentContainer: {
     flex: 1,
     width: '100%',
+    maxWidth: '100%',
     height: '100%',
     backgroundColor: THEME.colors.background,
+    overflow: 'hidden',
   },
   contentContainerDesktop: {
     width: '100%',

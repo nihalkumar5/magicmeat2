@@ -260,7 +260,7 @@ const HeroBannerCarousel = React.memo<HeroProps>(function HeroBannerCarousel({
           showsHorizontalScrollIndicator={false}
           onMomentumScrollEnd={handleHeroScroll}
           scrollEventThrottle={32}
-          style={styles.heroScrollView}
+          style={[styles.heroScrollView, { maxWidth: '100%' }]}
         >
           {HERO_SLIDES.map((slide) => (
             <TouchableOpacity
@@ -994,6 +994,7 @@ export default function HomeScreen() {
           <FlatList
             horizontal
             showsHorizontalScrollIndicator={false}
+            style={{ maxWidth: '100%' }}
             contentContainerStyle={styles.mobileTop10Scroll}
             data={top10Products}
             keyExtractor={(item) => `m-top10-${item.id}`}
@@ -1065,6 +1066,7 @@ export default function HomeScreen() {
           <FlatList
             horizontal
             showsHorizontalScrollIndicator={false}
+            style={{ maxWidth: '100%' }}
             contentContainerStyle={styles.shelfCardsScroll}
             data={VIDEO_RECIPES}
             keyExtractor={(recipe) => recipe.id}
@@ -1141,6 +1143,7 @@ export default function HomeScreen() {
           <FlatList
             horizontal
             showsHorizontalScrollIndicator={false}
+            style={{ maxWidth: '100%' }}
             contentContainerStyle={styles.shelfCardsScroll}
             data={seafoodProducts}
             keyExtractor={(product) => `seafood-${product.id}`}
@@ -1175,6 +1178,7 @@ export default function HomeScreen() {
           <FlatList
             horizontal
             showsHorizontalScrollIndicator={false}
+            style={{ maxWidth: '100%' }}
             contentContainerStyle={styles.shelfCardsScroll}
             data={muttonProducts}
             keyExtractor={(product) => `mutton-${product.id}`}
@@ -1846,6 +1850,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#FFFFFF',
     paddingTop: 16,
     paddingBottom: 20,
+    width: '100%',
+    maxWidth: '100%',
+    overflow: 'hidden',
   },
   mobileTop10HeaderRow: {
     flexDirection: 'row',
@@ -1882,18 +1889,21 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#101010',
     width: '100%',
+    maxWidth: '100%',
     overflow: 'hidden',
   },
   container: {
     flex: 1,
     backgroundColor: '#FFFFFF',
     width: '100%',
+    maxWidth: '100%',
     overflow: 'hidden',
   },
   scrollContent: {
     backgroundColor: '#FFFFFF',
     paddingBottom: 20,
     width: '100%',
+    maxWidth: '100%',
     overflow: 'hidden',
   },
   darkHeader: {
@@ -1903,12 +1913,15 @@ const styles = StyleSheet.create({
     paddingBottom: 10,
     gap: 10,
     width: '100%',
+    maxWidth: '100%',
     overflow: 'hidden',
   },
   topNavRow: {
     flexDirection: 'row',
     alignItems: 'center',
     width: '100%',
+    maxWidth: '100%',
+    overflow: 'hidden',
     gap: 10,
   },
   etaContainer: {
@@ -1986,6 +1999,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 10,
     width: '100%',
+    maxWidth: '100%',
+    overflow: 'hidden',
   },
   searchCapsule: {
     flex: 1,
@@ -2219,6 +2234,9 @@ const styles = StyleSheet.create({
     paddingTop: 16,
     paddingBottom: 24,
     backgroundColor: '#FFFFFF',
+    width: '100%',
+    maxWidth: '100%',
+    overflow: 'hidden',
   },
   popularNearYouHeader: {
     marginBottom: 16,
@@ -2279,6 +2297,9 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     paddingBottom: 8,
     backgroundColor: '#FFFFFF',
+    width: '100%',
+    maxWidth: '100%',
+    overflow: 'hidden',
   },
   sectionHeaderRow: {
     flexDirection: 'row',
@@ -2308,6 +2329,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 14,
     backgroundColor: '#FFFFFF',
+    width: '100%',
+    maxWidth: '100%',
+    overflow: 'hidden',
   },
   dealsBanner: {
     backgroundColor: '#DC2626',
@@ -2436,6 +2460,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     paddingVertical: 12,
     backgroundColor: '#FFFFFF',
+    width: '100%',
+    maxWidth: '100%',
+    overflow: 'hidden',
   },
   zabihaBanner: {
     backgroundColor: '#C52227',
@@ -2495,6 +2522,9 @@ const styles = StyleSheet.create({
     paddingTop: 40,
     paddingBottom: 24,
     backgroundColor: '#FFFFFF',
+    width: '100%',
+    maxWidth: '100%',
+    overflow: 'hidden',
   },
   poeticQuoteLine: {
     fontSize: 26,
